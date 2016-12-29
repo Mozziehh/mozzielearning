@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mozzie.mozlearning">
+
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".MyApplication">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".a_activity.LifeCycleActivity"></activity>
+        <activity android:name=".a_activity.FoucesActivity"></activity>
+        <activity android:name=".c_database.DataBaseActivity"></activity>
+        <activity android:name=".d_intent.Aactivity"></activity>
+        <activity android:name=".d_intent.Bactivity"></activity>
+        <activity android:name=".d_intent.Cactivity">
+            <intent-filter>
+                <!--同时满足，action 和 category才能生效-->
+                <action android:name="com.example.mozzie.mozlearning.d_intent.ACTION_START"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <category android:name="android.intent.category.MY_CATEGORY"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".d_intent.Dactivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".a_activity.LaunchModeActivity"></activity>
+    </application>
+
+</manifest>

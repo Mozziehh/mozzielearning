@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mozzie.mozlearning.MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/activity_lifecycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnLifeCycle"
+        android:text="生命周期"/>
+    <Button
+        android:id="@+id/activity_dababase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnDatabase"
+        android:text="数据库" />
+
+    <Button
+        android:id="@+id/activity_focuse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnFocuse"
+        android:text="焦点问题" />
+
+    <Button
+        android:id="@+id/activity_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnIntent"
+        android:text="intent跳转" />
+
+    <Button
+        android:id="@+id/activity_launchmode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnLaunchMode"
+        android:text="启动模式" />
+
+</LinearLayout>
