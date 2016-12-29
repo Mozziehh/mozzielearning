@@ -10,6 +10,7 @@ import com.example.mozzie.mozlearning.a_activity.LaunchModeActivity;
 import com.example.mozzie.mozlearning.a_activity.LifeCycleActivity;
 import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
+import com.example.mozzie.mozlearning.f_fragment.FragmentActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,5 +50,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void OnLaunchMode(View view){
         LaunchModeActivity.startActivity(this);
+    }
+
+    /**
+     * 优雅的启动activity
+     * @param view
+     */
+    public void OnFragmentLaunch(View view){
+        FragmentActivity.startActivity(this);
     }
 }

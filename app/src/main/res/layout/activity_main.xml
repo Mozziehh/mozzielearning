@@ -45,4 +45,11 @@
         android:onClick="OnLaunchMode"
         android:text="启动模式" />
 
+    <Button
+        android:id="@+id/activity_launchfragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnFragmentLaunch"
+        android:text="启动fragment" />
+
 </LinearLayout>

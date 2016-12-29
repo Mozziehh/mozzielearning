@@ -36,6 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".a_activity.LaunchModeActivity"></activity>
+        <activity android:name=".f_fragment.FragmentActivity"></activity>
     </application>
 
 </manifest>
