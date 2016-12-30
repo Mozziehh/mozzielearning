@@ -52,4 +52,11 @@
         android:onClick="OnFragmentLaunch"
         android:text="启动fragment" />
 
+    <Button
+        android:id="@+id/activity_broadcastreceiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnBroadcastLaunch"
+        android:text="广播接收者" />
+
 </LinearLayout>

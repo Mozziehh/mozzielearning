@@ -11,6 +11,7 @@ import com.example.mozzie.mozlearning.a_activity.LifeCycleActivity;
 import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
 import com.example.mozzie.mozlearning.f_fragment.FragmentActivity;
+import com.example.mozzie.mozlearning.g_broadcastreceiver.BroadcastRecevierActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,5 +59,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void OnFragmentLaunch(View view){
         FragmentActivity.startActivity(this);
+    }
+
+    /**
+     * 优雅的启动activity
+     * @param view
+     */
+    public void OnBroadcastLaunch(View view){
+        BroadcastRecevierActivity.startActivity(this);
     }
 }

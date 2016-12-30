@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MozLearning</string>
+    <string name="broadcast_toast">广播接收者：\n动态注册：\n在类中的oncreate和ondestory中进行注册和取消静态注册：\n建立独立的类，在mainfest文件中注册；无序广播（自定义广播）：\n静态注册的广播，但是在，有序广播：\n</string>
 </resources>

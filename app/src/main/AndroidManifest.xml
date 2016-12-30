@@ -3,6 +3,8 @@
     package="com.example.mozzie.mozlearning">
 
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,6 +39,20 @@
         </activity>
         <activity android:name=".a_activity.LaunchModeActivity"></activity>
         <activity android:name=".f_fragment.FragmentActivity"></activity>
+        <activity android:name=".g_broadcastreceiver.BroadcastRecevierActivity"></activity>
+
+        <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".g_broadcastreceiver.SelfDefineBroadcast">
+            <!--给广播设置优先级-->
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.SELFDEF_BROADRECEIVER"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
