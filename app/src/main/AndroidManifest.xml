@@ -40,7 +40,8 @@
         <activity android:name=".a_activity.LaunchModeActivity"></activity>
         <activity android:name=".f_fragment.FragmentActivity"></activity>
         <activity android:name=".g_broadcastreceiver.BroadcastRecevierActivity"></activity>
-
+        <activity android:name=".h_contentprovider.FileoutputStreamActivity"></activity>
+        <activity android:name=".h_contentprovider.FileinputStreamActivity"></activity>
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>
