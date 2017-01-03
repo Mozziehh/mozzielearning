@@ -42,6 +42,7 @@
         <activity android:name=".g_broadcastreceiver.BroadcastRecevierActivity"></activity>
         <activity android:name=".h_contentprovider.FileoutputStreamActivity"></activity>
         <activity android:name=".h_contentprovider.FileinputStreamActivity"></activity>
+        <activity android:name=".i_sharepreference.SharePreferenceActivity"></activity>
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

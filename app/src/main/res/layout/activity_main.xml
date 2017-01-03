@@ -59,4 +59,11 @@
         android:onClick="OnBroadcastLaunch"
         android:text="广播接收者" />
 
+    <Button
+        android:id="@+id/activity_sharepreference"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnSharePreferenceLaunch"
+        android:text="SharePreference" />
+
 </LinearLayout>
