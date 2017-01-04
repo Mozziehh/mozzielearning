@@ -66,4 +66,11 @@
         android:onClick="OnSharePreferenceLaunch"
         android:text="SharePreference" />
 
+    <Button
+        android:id="@+id/activity_contentprovder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnContentProviderLaunch"
+        android:text="获取联系人" />
+
 </LinearLayout>

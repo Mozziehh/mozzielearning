@@ -12,6 +12,7 @@ import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
 import com.example.mozzie.mozlearning.f_fragment.FragmentActivity;
 import com.example.mozzie.mozlearning.g_broadcastreceiver.BroadcastRecevierActivity;
+import com.example.mozzie.mozlearning.h_contentprovider.ContentProviderConnectActivity;
 import com.example.mozzie.mozlearning.i_sharepreference.SharePreferenceActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnSharePreferenceLaunch(View view){
         SharePreferenceActivity.startActivity(this);
+    }
+
+    public void OnContentProviderLaunch(View view){
+        ContentProviderConnectActivity.startActivity(this);
     }
 
 }
