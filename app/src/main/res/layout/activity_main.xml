@@ -73,4 +73,11 @@
         android:onClick="OnContentProviderLaunch"
         android:text="获取联系人" />
 
+    <Button
+        android:id="@+id/activity_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnNotificationLaunch"
+        android:text="触发通知" />
+
 </LinearLayout>

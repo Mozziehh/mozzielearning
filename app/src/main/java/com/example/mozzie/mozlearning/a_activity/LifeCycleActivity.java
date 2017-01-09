@@ -2,6 +2,7 @@ package com.example.mozzie.mozlearning.a_activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -18,6 +19,10 @@ public class LifeCycleActivity extends Activity{
     protected void onStart() {
         super.onStart();
         LOGGER.d(this, "onStart");
+        String test = "";
+        if(!TextUtils.isEmpty(test)){
+            test.equals("on");
+        }
     }
 
     @Override

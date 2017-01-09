@@ -14,6 +14,7 @@ import com.example.mozzie.mozlearning.f_fragment.FragmentActivity;
 import com.example.mozzie.mozlearning.g_broadcastreceiver.BroadcastRecevierActivity;
 import com.example.mozzie.mozlearning.h_contentprovider.ContentProviderConnectActivity;
 import com.example.mozzie.mozlearning.i_sharepreference.SharePreferenceActivity;
+import com.example.mozzie.mozlearning.j_notification.NotificationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnContentProviderLaunch(View view){
         ContentProviderConnectActivity.startActivity(this);
+    }
+
+    public void OnNotificationLaunch(View view){
+        NotificationActivity.startActivity(this);
     }
 
 }
