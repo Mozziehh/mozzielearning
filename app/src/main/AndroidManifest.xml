@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
     <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +15,7 @@
         android:theme="@style/AppTheme"
         android:name=".MyApplication">
         <service android:name=".k_service.MyService"></service>
+        <service android:name=".k_service.MyIntentService"></service>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,6 +50,9 @@
         <activity android:name=".h_contentprovider.ContentProviderConnectActivity"></activity>
         <activity android:name=".j_notification.NotificationActivity"></activity>
         <activity android:name=".j_notification.NotificationAcceptActivity"></activity>
+        <activity android:name=".k_service.MyServiceActivity"></activity>
+        <activity android:name=".l_http.HttpUrlConnectionAcitivity"></activity>
+
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

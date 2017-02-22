@@ -1,6 +1,7 @@
 package com.example.mozzie.mozlearning;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.squareup.leakcanary.LeakCanary;
 
@@ -10,8 +11,11 @@ import com.squareup.leakcanary.LeakCanary;
 
 public class MyApplication extends Application {
 
+    private static Context mContext;
+
     @Override public void onCreate() {
         super.onCreate();
+        mContext = this.getApplicationContext();
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -19,5 +23,9 @@ public class MyApplication extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...
+    }
+
+    public static Context getMyContext(){
+        return mContext;
     }
 }

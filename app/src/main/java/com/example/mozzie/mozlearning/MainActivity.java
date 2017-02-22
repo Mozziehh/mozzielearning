@@ -15,6 +15,8 @@ import com.example.mozzie.mozlearning.g_broadcastreceiver.BroadcastRecevierActiv
 import com.example.mozzie.mozlearning.h_contentprovider.ContentProviderConnectActivity;
 import com.example.mozzie.mozlearning.i_sharepreference.SharePreferenceActivity;
 import com.example.mozzie.mozlearning.j_notification.NotificationActivity;
+import com.example.mozzie.mozlearning.k_service.MyServiceActivity;
+import com.example.mozzie.mozlearning.l_http.HttpUrlConnectionAcitivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,6 +84,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnNotificationLaunch(View view){
         NotificationActivity.startActivity(this);
+    }
+
+    public void OnServiceLaunch(View view){
+        MyServiceActivity.startActivity(this);
+    }
+
+    public void OnHttpLaunch(View view){
+        HttpUrlConnectionAcitivity.startActivity(this);
     }
 
 }

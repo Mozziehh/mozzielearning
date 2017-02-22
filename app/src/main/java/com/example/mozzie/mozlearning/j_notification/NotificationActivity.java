@@ -27,8 +27,8 @@ public class NotificationActivity extends Activity{
             @Override
             public void onClick(View v) {
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                Notification notification = new Notification(1,"",System.currentTimeMillis());
-//                notification.
+                Notification notification = new Notification(R.drawable.leak_canary_icon, "This is ticker text", System.currentTimeMillis());
+                notificationManager.notify(1,notification);
             }
         });
     }

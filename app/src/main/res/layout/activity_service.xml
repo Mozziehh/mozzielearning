@@ -14,4 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button10" />
+
+    <Button
+        android:text="bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button11" />
+
+    <Button
+        android:text="unbind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button12" />
+
+    <Button
+        android:text="IntentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button13" />
 </LinearLayout>

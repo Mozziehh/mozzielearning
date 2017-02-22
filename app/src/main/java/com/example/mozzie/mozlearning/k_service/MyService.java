@@ -1,11 +1,16 @@
 package com.example.mozzie.mozlearning.k_service;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import com.example.mozzie.mozlearning.MainActivity;
+import com.example.mozzie.mozlearning.R;
 import com.example.mozzie.mozlearning.b_utils.LOGGER;
 
 /**
@@ -13,6 +18,7 @@ import com.example.mozzie.mozlearning.b_utils.LOGGER;
  */
 
 public class MyService extends Service {
+    public DownloadBinder mDownloadBinder;
     /**
      * Return the communication channel to the service.  May return null if
      * clients can not bind to the service.  The returned
@@ -36,12 +42,31 @@ public class MyService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mDownloadBinder;
     }
 
+    public class DownloadBinder extends Binder{
+        public void startDownload(){
+            LOGGER.d("MyService-DownloadBinder", "startDownload");
+        }
+
+        public int getProgress(){
+            LOGGER.d("MyService-DownloadBinder", "getProgress");
+            return 0;
+        }
+    }
     @Override
     public void onCreate() {
         super.onCreate();
+        mDownloadBinder = new DownloadBinder();
+
+        //有点不好用，过时了
+//        Notification.Builder notification = new Notification.Builder(this);
+//        Intent notificationIntent = new Intent(this, MainActivity.class);
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+//                notificationIntent, 0);
+//        notification.setContentTitle("显示service");
+//        startForeground(1, notification.getNotification());
         LOGGER.d("MyService", "onCreate");
     }
 
