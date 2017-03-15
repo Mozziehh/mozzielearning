@@ -1,13 +1,14 @@
 package com.example.mozzie.mozlearning;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.mozzie.mozlearning.a_activity.FoucesActivity;
 import com.example.mozzie.mozlearning.a_activity.LaunchModeActivity;
 import com.example.mozzie.mozlearning.a_activity.LifeCycleActivity;
+import com.example.mozzie.mozlearning.b_utils.LOGGER;
 import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
 import com.example.mozzie.mozlearning.f_fragment.FragmentActivity;
@@ -17,8 +18,9 @@ import com.example.mozzie.mozlearning.i_sharepreference.SharePreferenceActivity;
 import com.example.mozzie.mozlearning.j_notification.NotificationActivity;
 import com.example.mozzie.mozlearning.k_service.MyServiceActivity;
 import com.example.mozzie.mozlearning.l_http.HttpUrlConnectionAcitivity;
+import com.example.mozzie.mozlearning.z_work_drawerlayout.DrawerlayoutActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,4 +96,7 @@ public class MainActivity extends AppCompatActivity {
         HttpUrlConnectionAcitivity.startActivity(this);
     }
 
+    public void OnDrawerlayoutLaunch(View view){
+        DrawerlayoutActivity.startActivity(this);
+    }
 }

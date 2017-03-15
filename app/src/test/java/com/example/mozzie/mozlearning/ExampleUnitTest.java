@@ -1,5 +1,7 @@
 package com.example.mozzie.mozlearning;
 
+import com.example.mozzie.mozlearning.b_utils.LOGGER;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

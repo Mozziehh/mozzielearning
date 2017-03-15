@@ -94,6 +94,13 @@
             android:layout_height="wrap_content"
             android:onClick="OnHttpLaunch"
             android:text="发起请求" />
+        <Button
+            android:id="@+id/activity_drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnDrawerlayoutLaunch"
+            android:text="拖拽" />
+
     </LinearLayout>
 
 

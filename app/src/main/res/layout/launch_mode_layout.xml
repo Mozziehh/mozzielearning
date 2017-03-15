@@ -32,4 +32,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button6" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="当我们用applicationcontext启动activity会遇到什么问题？"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="adb shell dumpsys activity 命令查看站结构"/>
 </LinearLayout>

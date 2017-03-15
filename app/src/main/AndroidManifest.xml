@@ -52,7 +52,17 @@
         <activity android:name=".j_notification.NotificationAcceptActivity"></activity>
         <activity android:name=".k_service.MyServiceActivity"></activity>
         <activity android:name=".l_http.HttpUrlConnectionAcitivity"></activity>
-
+        <activity android:name=".z_work_drawerlayout.DrawerlayoutActivity"></activity>
+        <activity android:name=".z_work_drawerlayout.SimpleSwipeActivity"
+            android:theme="@style/AppTheme.Moz">
+        </activity>
+        <activity android:name=".z_work_drawerlayout.BaseActivity"
+            android:theme="@style/AppTheme.Moz">
+        </activity>
+        <activity android:name=".z_work_drawerlayout.lib.app.SwipeBackActivity"
+            android:theme="@style/AppTheme.Moz"></activity>
+        <activity android:name=".z_work_drawerlayout.MyTestSwipeActivity"
+            android:theme="@style/AppTheme.Moz"></activity>
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

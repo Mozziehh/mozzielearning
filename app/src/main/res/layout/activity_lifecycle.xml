@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/lifecycle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/lifecycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/firstlaunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="第一次启动调用哪些方法?"/>
+        <TextView
+            android:id="@+id/backtodesk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开新activity或者切换到桌面，如果是透明主题"/>
+        <TextView
+            android:id="@+id/backtoactivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="从桌面切换回来？"/>
+        <TextView
+            android:id="@+id/backtofinish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="back键回退到退出"/>
+        <TextView
+            android:id="@+id/atob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A切换到B，a的pause和stop什么时候执行"/>
+        <TextView
+            android:id="@+id/screenswitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="横竖屏切换"/>
+        <TextView
+            android:id="@+id/neicunbuzu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内存不足被搞死"/>
+    </LinearLayout>
+
+    <!--<Button-->
+        <!--android:id="@+id/button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+</ScrollView>
