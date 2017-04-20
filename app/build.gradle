@@ -20,6 +20,11 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    repositories {
+        flatDir{
+            dirs 'libs'
+        }
+    }
 //    buildscript{
 //        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.+'
 //    }
@@ -36,10 +41,18 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'junit:junit:4.12'
-
     testCompile "org.robolectric:robolectric:3.3.1"
 
 //    androidTestCompile 'com.android.support:support-annotations:23.2.1'
 //    androidTestCompile 'com.android.support.test:runner:0.4.1'
 //    androidTestCompile 'com.android.support.test:rules:0.4.1'
+//
+//    testCompile "org.mockito:mockito-core:2.+"
+//    androidTestCompile "org.mockito:mockito-android:+"
+//    compile 'junit:junit:4.12'
+//    compile 'org.mockito:mockito-core:2.7.17'
+
+    compile(name:'ZMCert_SDK', ext:'aar')
+    compile(name:'Certify_SDK', ext:'aar')
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
 }

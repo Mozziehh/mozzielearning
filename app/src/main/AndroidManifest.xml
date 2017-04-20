@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
     <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -52,6 +53,7 @@
         <activity android:name=".j_notification.NotificationAcceptActivity"></activity>
         <activity android:name=".k_service.MyServiceActivity"></activity>
         <activity android:name=".l_http.HttpUrlConnectionAcitivity"></activity>
+        <activity android:name=".n_zmcert.ZMCertActivity"></activity>
         <activity android:name=".z_work_drawerlayout.DrawerlayoutActivity"></activity>
         <activity android:name=".z_work_drawerlayout.SimpleSwipeActivity"
             android:theme="@style/AppTheme.Moz">
