@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/broadcast_toast"
+        android:id="@+id/textView4" />
+    <Button
+        android:id="@+id/broadcast_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点我发送广播"/>
+</LinearLayout>

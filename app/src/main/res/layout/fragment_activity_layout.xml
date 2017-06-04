@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/left_fragment"
+        android:name="com.example.mozzie.mozlearning.f_fragment.AFragment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+    </fragment>
+    <fragment
+        android:id="@+id/right_fragment"
+        android:name="com.example.mozzie.mozlearning.f_fragment.BFragment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+    </fragment>
+</LinearLayout>

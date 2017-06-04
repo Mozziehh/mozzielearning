@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mozzie.mozlearning">
+
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".MyApplication">
+        <service android:name=".k_service.MyService"></service>
+        <service android:name=".k_service.MyIntentService"></service>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".a_activity.LifeCycleActivity"></activity>
+        <activity android:name=".a_activity.FoucesActivity"></activity>
+        <activity android:name=".c_database.DataBaseActivity"></activity>
+        <activity android:name=".d_intent.Aactivity"></activity>
+        <activity android:name=".d_intent.Bactivity"></activity>
+        <activity android:name=".d_intent.Cactivity">
+            <intent-filter>
+                <!--同时满足，action 和 category才能生效-->
+                <action android:name="com.example.mozzie.mozlearning.d_intent.ACTION_START"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <category android:name="android.intent.category.MY_CATEGORY"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".d_intent.Dactivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".a_activity.LaunchModeActivity"></activity>
+        <activity android:name=".f_fragment.FragmentActivity"></activity>
+        <activity android:name=".g_broadcastreceiver.BroadcastRecevierActivity"></activity>
+        <activity android:name=".h_contentprovider.FileoutputStreamActivity"></activity>
+        <activity android:name=".h_contentprovider.FileinputStreamActivity"></activity>
+        <activity android:name=".i_sharepreference.SharePreferenceActivity"></activity>
+        <activity android:name=".h_contentprovider.ContentProviderConnectActivity"></activity>
+        <activity android:name=".j_notification.NotificationActivity"></activity>
+        <activity android:name=".j_notification.NotificationAcceptActivity"></activity>
+        <activity android:name=".k_service.MyServiceActivity"></activity>
+        <activity android:name=".l_http.HttpUrlConnectionAcitivity"></activity>
+        <activity android:name=".n_zmcert.ZMCertActivity"></activity>
+        <activity android:name=".z_work_drawerlayout.DrawerlayoutActivity"></activity>
+        <activity android:name=".z_work_drawerlayout.SimpleSwipeActivity"
+            android:theme="@style/AppTheme.Moz">
+        </activity>
+        <activity android:name=".z_work_drawerlayout.BaseActivity"
+            android:theme="@style/AppTheme.Moz">
+        </activity>
+        <activity android:name=".z_work_drawerlayout.lib.app.SwipeBackActivity"
+            android:theme="@style/AppTheme.Moz"></activity>
+        <activity android:name=".z_work_drawerlayout.MyTestSwipeActivity"
+            android:theme="@style/AppTheme.Moz"></activity>
+        <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".g_broadcastreceiver.SelfDefineBroadcast">
+            <!--给广播设置优先级-->
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.SELFDEF_BROADRECEIVER"></action>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
