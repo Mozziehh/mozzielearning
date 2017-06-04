@@ -1,2 +1,1 @@
-# mozzielearning
-self-improment
+this is a learning project for Android developers!
