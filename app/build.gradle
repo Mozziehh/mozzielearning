@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "com.example.mozzie.mozlearning"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -35,7 +35,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:design:25.1.1'
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
@@ -51,8 +52,5 @@ dependencies {
 //    androidTestCompile "org.mockito:mockito-android:+"
 //    compile 'junit:junit:4.12'
 //    compile 'org.mockito:mockito-core:2.7.17'
-
-    compile(name:'ZMCert_SDK', ext:'aar')
-    compile(name:'Certify_SDK', ext:'aar')
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
 }

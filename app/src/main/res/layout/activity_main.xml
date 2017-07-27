@@ -107,6 +107,25 @@
             android:onClick="OnZMLaunch"
             android:text="芝麻认证" />
 
+        <Button
+            android:id="@+id/activity_tabhostLaunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnTabHostLaunch"
+            android:text="底部栏"/>
+        <Button
+            android:id="@+id/activity_OnNavigationViewLaunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnNavigationViewLaunch"
+            android:text="新底部栏"/>
+        <Button
+            android:id="@+id/activity_listviewshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnListviewLaunch"
+            android:text="列表页"/>
+
     </LinearLayout>
 
 

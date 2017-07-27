@@ -21,7 +21,9 @@ import com.example.mozzie.mozlearning.i_sharepreference.SharePreferenceActivity;
 import com.example.mozzie.mozlearning.j_notification.NotificationActivity;
 import com.example.mozzie.mozlearning.k_service.MyServiceActivity;
 import com.example.mozzie.mozlearning.l_http.HttpUrlConnectionAcitivity;
-import com.example.mozzie.mozlearning.n_zmcert.ZMCertActivity;
+import com.example.mozzie.mozlearning.n_listview.ListviewActivity;
+import com.example.mozzie.mozlearning.o_tabhost.BottomNavigationActivity;
+import com.example.mozzie.mozlearning.o_tabhost.TabHostActivity;
 import com.example.mozzie.mozlearning.z_work_drawerlayout.DrawerlayoutActivity;
 
 public class MainActivity extends Activity {
@@ -104,14 +106,14 @@ public class MainActivity extends Activity {
         DrawerlayoutActivity.startActivity(this);
     }
 
-    public void OnZMLaunch(View view){
-        TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
-        /*
-        * 唯一的设备ID：
-        * GSM手机的 IMEI 和 CDMA手机的 MEID.
-        * Return null if device ID is not available.
-        */
-        ToastUtils.show(MainActivity.this, tm.getDeviceId());//String
-//        ZMCertActivity.startActivity(this);
+    public void OnTabHostLaunch(View view){
+        TabHostActivity.startActivity(this);
+    }
+
+    public void OnListviewLaunch(View view){
+        ListviewActivity.startActivity(this);
+    }
+    public void OnNavigationViewLaunch(View view){
+        BottomNavigationActivity.startActivity(this);
     }
 }
