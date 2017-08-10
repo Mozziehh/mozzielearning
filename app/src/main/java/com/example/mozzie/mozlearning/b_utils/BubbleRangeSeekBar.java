@@ -300,14 +300,14 @@ public class BubbleRangeSeekBar extends View {
 
         lineLeft = seekBarRadius;
         lineRight = w - seekBarRadius;
-        lineTop = seekBarRadius - seekBarRadius / 8 + 250;
-        lineBottom = seekBarRadius + seekBarRadius / 8 + 250;
+        lineTop = seekBarRadius - seekBarRadius / 8 + DisplayUtil.dip2px(getContext(), 82);
+        lineBottom = seekBarRadius + seekBarRadius / 8 + DisplayUtil.dip2px(getContext(), 82);
         lineWidth = lineRight - lineLeft;
         line.set(lineLeft, lineTop, lineRight, lineBottom);
         lineCorners = (int) ((lineBottom - lineTop) * 0.45f);
 
-        leftSB.onSizeChanged(seekBarRadius, seekBarRadius + 250, h, lineWidth, cellsCount > 1, seekBarResId, getContext());
-        rightSB.onSizeChanged(seekBarRadius, seekBarRadius + 250, h, lineWidth, cellsCount > 1, seekBarResId, getContext());
+        leftSB.onSizeChanged(seekBarRadius, seekBarRadius + DisplayUtil.dip2px(getContext(), 82), h, lineWidth, cellsCount > 1, seekBarResId, getContext());
+        rightSB.onSizeChanged(seekBarRadius, seekBarRadius + DisplayUtil.dip2px(getContext(), 82), h, lineWidth, cellsCount > 1, seekBarResId, getContext());
 
         if (cellsCount == 1) {
             rightSB.left += leftSB.widthSize;
@@ -336,7 +336,7 @@ public class BubbleRangeSeekBar extends View {
          */
         paint.setColor(Color.parseColor("#555555"));
         float dif=(maxValue-minValue)/mSpacerCount;
-        paint.setTextSize(textSize);
+        paint.setTextSize(DisplayUtil.dip2px(getContext(), 15));
         paint.setAntiAlias(true);
         if(dif < 1.0) {
             mSpacerCount = (int)(maxValue-minValue);
@@ -347,18 +347,19 @@ public class BubbleRangeSeekBar extends View {
         for(int i=0;i<mSpacerCount+1;i++){
             float textleft=lineLeft*0.8f+spacerWidth*i;
             int text=(int)(minValue+dif*i);
-            String numtext=text+"";
+            String numtext=text+"万";
             if(i==mSpacerCount){
                 numtext="不限";
             }
             float numtextWidth=paint.measureText(numtext);
             if(i == 0) {
-                canvas.drawText(numtext+"",textleft + numtextWidth/2,textBottom,paint);
-            } else if (i != mSpacerCount){
-                canvas.drawText(numtext+"",textleft- numtextWidth/2,textBottom,paint);
+                canvas.drawText(numtext+"",textleft,textBottom,paint);
+            } else {
+                canvas.drawText(numtext+"",textleft - DisplayUtil.dip2px(getContext(), 18),textBottom,paint);
             }
+
             if(i==mSpacerCount) {
-                canvas.drawText(numtext+"",textleft - numtextWidth,textBottom,paint);
+                canvas.drawText(numtext+"",textleft - DisplayUtil.dip2px(getContext(), 18),textBottom,paint);
                 break;
             }
         }
@@ -390,8 +391,8 @@ public class BubbleRangeSeekBar extends View {
         float minLeft = leftSB.left + leftSB.widthSize / 2 + leftSB.lineWidth * leftSB.currPercent;
         float maxRight = rightSB.left + rightSB.widthSize / 2 + rightSB.lineWidth * rightSB.currPercent;
 
-        float bitmapLeft = (lineWidth-20) * mCurrentPercent;
-        float textLeft = (lineWidth-20) * mCurrentPercent;
+        float bitmapLeft = (lineWidth- 20) * mCurrentPercent;
+        float textLeft = (lineWidth - 20) * mCurrentPercent;
 
         Paint paint = new Paint();
         Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
@@ -403,9 +404,9 @@ public class BubbleRangeSeekBar extends View {
         bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
         if(currTouch == leftSB){
-            canvas.drawBitmap(bitmap, bitmapLeft - 20, 200 - leftSB.widthSize, paint);
+            canvas.drawBitmap(bitmap, bitmapLeft - DisplayUtil.dip2px(getContext(), 6), DisplayUtil.dip2px(getContext(), 66) - leftSB.widthSize, paint);
         }else{
-            canvas.drawBitmap(bitmap, bitmapLeft > lineRight ? lineRight - leftSB.widthSize/2 : bitmapLeft - 20, 200 - leftSB.widthSize, paint);
+            canvas.drawBitmap(bitmap, bitmapLeft > lineRight ? lineRight - leftSB.widthSize/2 : bitmapLeft - DisplayUtil.dip2px(getContext(), 6), DisplayUtil.dip2px(getContext(), 66) - leftSB.widthSize, paint);
         }
 
         if (bitmap.isRecycled()) { // 判断图片是否回收
@@ -414,24 +415,24 @@ public class BubbleRangeSeekBar extends View {
 
         paint.setColor(Color.WHITE);
         paint.setStrokeWidth(10);
-        paint.setTextSize(50);
+        paint.setTextSize(DisplayUtil.dip2px(getContext(), 20));
         String currentTag = "";
 
         if(currTouch == leftSB){
             int currentRange = (int)(getCurrentRange()[0]);
             currentTag = (String.valueOf(currentRange));
             if(currentRange < 10){
-                canvas.drawText(currentTag, textLeft + 44, 185, paint);
+                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 14), DisplayUtil.dip2px(getContext(), 65), paint);
             }else{
-                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft : textLeft + 30, 185, paint);
+                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft : textLeft + DisplayUtil.dip2px(getContext(), 9), DisplayUtil.dip2px(getContext(), 65), paint);
             }
         }else{
             int currentRange = (int)(getCurrentRange()[1]);
             currentTag = (String.valueOf(currentRange));
             if(currentRange < 10){
-                canvas.drawText(currentTag, textLeft + 44, 185, paint);
+                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 14), DisplayUtil.dip2px(getContext(), 65), paint);
             }else{
-                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft: textLeft + 30, 185, paint);
+                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft: textLeft + DisplayUtil.dip2px(getContext(), 9), DisplayUtil.dip2px(getContext(), 65), paint);
             }
         }
 
@@ -662,7 +663,7 @@ public class BubbleRangeSeekBar extends View {
             canvas.save();
             canvas.translate(offset, 0);
             if (bmp != null) {
-                canvas.drawBitmap(bmp, left - 25, top - 25, null);
+                canvas.drawBitmap(bmp, left - DisplayUtil.dip2px(getContext(), 8), top - DisplayUtil.dip2px(getContext(), 8), null);
             } else {
                 canvas.translate(left, 0);
                 drawDefault(canvas);
