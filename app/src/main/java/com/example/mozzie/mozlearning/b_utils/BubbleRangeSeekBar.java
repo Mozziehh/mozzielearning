@@ -300,8 +300,8 @@ public class BubbleRangeSeekBar extends View {
 
         lineLeft = seekBarRadius;
         lineRight = w - seekBarRadius;
-        lineTop = seekBarRadius - seekBarRadius / 8 + DisplayUtil.dip2px(getContext(), 82);
-        lineBottom = seekBarRadius + seekBarRadius / 8 + DisplayUtil.dip2px(getContext(), 82);
+        lineTop = DisplayUtil.dip2px(getContext(), 82);
+        lineBottom = DisplayUtil.dip2px(getContext(), 86);
         lineWidth = lineRight - lineLeft;
         line.set(lineLeft, lineTop, lineRight, lineBottom);
         lineCorners = (int) ((lineBottom - lineTop) * 0.45f);
@@ -336,7 +336,7 @@ public class BubbleRangeSeekBar extends View {
          */
         paint.setColor(Color.parseColor("#555555"));
         float dif=(maxValue-minValue)/mSpacerCount;
-        paint.setTextSize(DisplayUtil.dip2px(getContext(), 15));
+        paint.setTextSize(DisplayUtil.dip2px(getContext(), 14));
         paint.setAntiAlias(true);
         if(dif < 1.0) {
             mSpacerCount = (int)(maxValue-minValue);
@@ -354,13 +354,10 @@ public class BubbleRangeSeekBar extends View {
             float numtextWidth=paint.measureText(numtext);
             if(i == 0) {
                 canvas.drawText(numtext+"",textleft,textBottom,paint);
+            } else if(i < mSpacerCount){
+                canvas.drawText(numtext+"",textleft - DisplayUtil.dip2px(getContext(), 12),textBottom,paint);
             } else {
-                canvas.drawText(numtext+"",textleft - DisplayUtil.dip2px(getContext(), 18),textBottom,paint);
-            }
-
-            if(i==mSpacerCount) {
-                canvas.drawText(numtext+"",textleft - DisplayUtil.dip2px(getContext(), 18),textBottom,paint);
-                break;
+                canvas.drawText(numtext+"",textleft - DisplayUtil.dip2px(getContext(), 16),textBottom,paint);
             }
         }
 
@@ -391,8 +388,8 @@ public class BubbleRangeSeekBar extends View {
         float minLeft = leftSB.left + leftSB.widthSize / 2 + leftSB.lineWidth * leftSB.currPercent;
         float maxRight = rightSB.left + rightSB.widthSize / 2 + rightSB.lineWidth * rightSB.currPercent;
 
-        float bitmapLeft = (lineWidth- 20) * mCurrentPercent;
-        float textLeft = (lineWidth - 20) * mCurrentPercent;
+        float bitmapLeft = lineWidth * mCurrentPercent;
+        float textLeft = lineWidth * mCurrentPercent;
 
         Paint paint = new Paint();
         Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
@@ -404,9 +401,9 @@ public class BubbleRangeSeekBar extends View {
         bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
         if(currTouch == leftSB){
-            canvas.drawBitmap(bitmap, bitmapLeft - DisplayUtil.dip2px(getContext(), 6), DisplayUtil.dip2px(getContext(), 66) - leftSB.widthSize, paint);
+            canvas.drawBitmap(bitmap, bitmapLeft - DisplayUtil.dip2px(getContext(), 6), DisplayUtil.dip2px(getContext(), 56) - leftSB.widthSize, paint);
         }else{
-            canvas.drawBitmap(bitmap, bitmapLeft > lineRight ? lineRight - leftSB.widthSize/2 : bitmapLeft - DisplayUtil.dip2px(getContext(), 6), DisplayUtil.dip2px(getContext(), 66) - leftSB.widthSize, paint);
+            canvas.drawBitmap(bitmap, bitmapLeft > lineRight ? lineRight - leftSB.widthSize/2 : bitmapLeft - DisplayUtil.dip2px(getContext(), 6), DisplayUtil.dip2px(getContext(), 56) - leftSB.widthSize, paint);
         }
 
         if (bitmap.isRecycled()) { // 判断图片是否回收
@@ -422,17 +419,17 @@ public class BubbleRangeSeekBar extends View {
             int currentRange = (int)(getCurrentRange()[0]);
             currentTag = (String.valueOf(currentRange));
             if(currentRange < 10){
-                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 14), DisplayUtil.dip2px(getContext(), 65), paint);
+                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 10), DisplayUtil.dip2px(getContext(), 56), paint);
             }else{
-                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft : textLeft + DisplayUtil.dip2px(getContext(), 9), DisplayUtil.dip2px(getContext(), 65), paint);
+                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft : textLeft + DisplayUtil.dip2px(getContext(), 5), DisplayUtil.dip2px(getContext(), 56), paint);
             }
         }else{
             int currentRange = (int)(getCurrentRange()[1]);
             currentTag = (String.valueOf(currentRange));
             if(currentRange < 10){
-                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 14), DisplayUtil.dip2px(getContext(), 65), paint);
+                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 10), DisplayUtil.dip2px(getContext(), 56), paint);
             }else{
-                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft: textLeft + DisplayUtil.dip2px(getContext(), 9), DisplayUtil.dip2px(getContext(), 65), paint);
+                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft: textLeft + DisplayUtil.dip2px(getContext(), 5), DisplayUtil.dip2px(getContext(), 56), paint);
             }
         }
 
@@ -659,11 +656,11 @@ public class BubbleRangeSeekBar extends View {
         }
 
         void draw(Canvas canvas) {
-            int offset = (int) ((lineWidth-20) * currPercent);
+            int offset = (int) (lineWidth * currPercent);
             canvas.save();
             canvas.translate(offset, 0);
             if (bmp != null) {
-                canvas.drawBitmap(bmp, left - DisplayUtil.dip2px(getContext(), 8), top - DisplayUtil.dip2px(getContext(), 8), null);
+                canvas.drawBitmap(bmp, left - DisplayUtil.dip2px(getContext(), 8), top - DisplayUtil.dip2px(getContext(), 20), null);
             } else {
                 canvas.translate(left, 0);
                 drawDefault(canvas);
