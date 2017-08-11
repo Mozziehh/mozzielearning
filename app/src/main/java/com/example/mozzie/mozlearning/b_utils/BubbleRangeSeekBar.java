@@ -81,7 +81,8 @@ public class BubbleRangeSeekBar extends View {
     /**
      * seekbar触摸按钮资源图片id
      */
-    private int seekBarResId;
+    private int seekBarResId,seekBarResPressId;
+    private int seebarNum[] = {0, 0};
     /**
      * 偏移量
      */
@@ -142,6 +143,9 @@ public class BubbleRangeSeekBar extends View {
         super(context, attrs);
         TypedArray t = context.obtainStyledAttributes(attrs, R.styleable.BubbleRangeSeekBar);
         seekBarResId = t.getResourceId(R.styleable.BubbleRangeSeekBar_seekBarResId, R.drawable.car_price_drawer);
+        seekBarResPressId = t.getResourceId(R.styleable.BubbleRangeSeekBar_seekBarPressResId, R.drawable.car_price_drawer_press);
+        seebarNum[0] = seekBarResId;
+        seebarNum[1] = seekBarResPressId;
         colorLineSelected = t.getColor(R.styleable.BubbleRangeSeekBar_lineColorSelected, 0xFF4BD962);
         colorLineEdge = t.getColor(R.styleable.BubbleRangeSeekBar_lineColorEdge, 0xFFD7D7D7);
         mDropTextSize = t.getInt(R.styleable.BubbleRangeSeekBar_bsb_bubble_drop_size, sp2px(20));
@@ -306,8 +310,8 @@ public class BubbleRangeSeekBar extends View {
         line.set(lineLeft, lineTop, lineRight, lineBottom);
         lineCorners = (int) ((lineBottom - lineTop) * 0.45f);
 
-        leftSB.onSizeChanged(seekBarRadius, seekBarRadius + DisplayUtil.dip2px(getContext(), 82), h, lineWidth, cellsCount > 1, seekBarResId, getContext());
-        rightSB.onSizeChanged(seekBarRadius, seekBarRadius + DisplayUtil.dip2px(getContext(), 82), h, lineWidth, cellsCount > 1, seekBarResId, getContext());
+        leftSB.onSizeChanged(seekBarRadius, seekBarRadius + DisplayUtil.dip2px(getContext(), 82), h, lineWidth, cellsCount > 1, seebarNum, getContext());
+        rightSB.onSizeChanged(seekBarRadius, seekBarRadius + DisplayUtil.dip2px(getContext(), 82), h, lineWidth, cellsCount > 1, seebarNum, getContext());
 
         if (cellsCount == 1) {
             rightSB.left += leftSB.widthSize;
@@ -368,8 +372,19 @@ public class BubbleRangeSeekBar extends View {
         canvas.drawRect(leftSB.left + leftSB.widthSize / 2 + leftSB.lineWidth * leftSB.currPercent, lineTop,
                 rightSB.left + rightSB.widthSize / 2 + rightSB.lineWidth * rightSB.currPercent, lineBottom, paint);
 
-        leftSB.draw(canvas);
-        rightSB.draw(canvas);
+        if(isDrawDrop){
+            if(currTouch == leftSB){
+                leftSB.draw(canvas, 1);
+                rightSB.draw(canvas, 0);
+            }else{
+                leftSB.draw(canvas, 0);
+                rightSB.draw(canvas, 1);
+            }
+        }else{
+            leftSB.draw(canvas, 0);
+            rightSB.draw(canvas, 0);
+        }
+
 
         /**
          * 画小雨滴
@@ -580,6 +595,8 @@ public class BubbleRangeSeekBar extends View {
         float currPercent;
         int left, right, top, bottom;
         Bitmap bmp;
+        Context context;
+        int mBitmapResId[];
 
         float material = 0;
         ValueAnimator anim;
@@ -605,35 +622,36 @@ public class BubbleRangeSeekBar extends View {
          * @param context
          * 设置滑动的效果
          */
-        void onSizeChanged(int centerX, int centerY, int hSize, int parentLineWidth, boolean cellsMode, int bmpResId, Context context) {
+        void onSizeChanged(int centerX, int centerY, int hSize, int parentLineWidth, boolean cellsMode, int[] bmpResId, Context context) {
             heightSize = hSize/10*2; //设置直径为高度的2/5
             widthSize = (int) (heightSize * 0.9f);
             left = centerX - widthSize / 2;
             right = centerX + widthSize / 2;
             top = centerY - heightSize / 2;
             bottom = centerY + heightSize / 2;
-
+            this.context = context;
+            mBitmapResId = bmpResId;
             if (cellsMode) {
                 lineWidth = parentLineWidth;
             } else {
                 lineWidth = parentLineWidth - widthSize;
             }
 
-            if (bmpResId > 0) {
-                Bitmap original = BitmapFactory.decodeResource(context.getResources(), bmpResId);
-                Matrix matrix = new Matrix();
-                float scaleWidth = (float)0.75;
-                float scaleHeight = (float)0.75;
-                matrix.postScale(scaleWidth, scaleHeight);
-                bmp = Bitmap.createBitmap(original, 0, 0, original.getWidth(), original.getHeight(), matrix, true);
-            } else {
-                defaultPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-                int radius = (int) (widthSize * 0.5f);
-                int barShadowRadius = (int) (radius * 0.95f);
-                int mShadowCenterX = widthSize / 2;
-                int mShadowCenterY = heightSize / 2;
-                shadowGradient = new RadialGradient(mShadowCenterX, mShadowCenterY, barShadowRadius, Color.BLACK, Color.TRANSPARENT, Shader.TileMode.CLAMP);
-            }
+//            if (bmpResId > 0) {
+//                Bitmap original = BitmapFactory.decodeResource(context.getResources(), bmpResId);
+//                Matrix matrix = new Matrix();
+//                float scaleWidth = (float)0.75;
+//                float scaleHeight = (float)0.75;
+//                matrix.postScale(scaleWidth, scaleHeight);
+//                bmp = Bitmap.createBitmap(original, 0, 0, original.getWidth(), original.getHeight(), matrix, true);
+//            } else {
+//                defaultPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//                int radius = (int) (widthSize * 0.5f);
+//                int barShadowRadius = (int) (radius * 0.95f);
+//                int mShadowCenterX = widthSize / 2;
+//                int mShadowCenterY = heightSize / 2;
+//                shadowGradient = new RadialGradient(mShadowCenterX, mShadowCenterY, barShadowRadius, Color.BLACK, Color.TRANSPARENT, Shader.TileMode.CLAMP);
+//            }
         }
 
         /**
@@ -655,10 +673,16 @@ public class BubbleRangeSeekBar extends View {
             currPercent = percent;
         }
 
-        void draw(Canvas canvas) {
+        void draw(Canvas canvas, int index) {
             int offset = (int) (lineWidth * currPercent);
             canvas.save();
             canvas.translate(offset, 0);
+            Bitmap original = BitmapFactory.decodeResource(this.context.getResources(), mBitmapResId[index]);
+            Matrix matrix = new Matrix();
+            float scaleWidth = (float)0.75;
+            float scaleHeight = (float)0.75;
+            matrix.postScale(scaleWidth, scaleHeight);
+            bmp = Bitmap.createBitmap(original, 0, 0, original.getWidth(), original.getHeight(), matrix, true);
             if (bmp != null) {
                 canvas.drawBitmap(bmp, left - DisplayUtil.dip2px(getContext(), 8), top - DisplayUtil.dip2px(getContext(), 20), null);
             } else {
