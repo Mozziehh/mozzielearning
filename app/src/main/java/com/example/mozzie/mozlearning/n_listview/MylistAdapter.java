@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.mozzie.mozlearning.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.zip.Inflater;
 
@@ -20,9 +21,9 @@ import java.util.zip.Inflater;
 
 public class MylistAdapter extends BaseAdapter{
 
-    HashMap<String,String> mListdata;
+    ArrayList<String> mListdata;
     Context mContext;
-    public MylistAdapter(Context context, HashMap<String, String> listdata){
+    public MylistAdapter(Context context, ArrayList<String> listdata){
         mListdata = listdata;
         mContext = context;
     }
@@ -96,6 +97,11 @@ public class MylistAdapter extends BaseAdapter{
         myViewHolder.content.setText(mListdata.get(position));
 
         return view;
+    }
+
+    public void adddata(ArrayList<String> listData) {
+        mListdata.addAll(listData);
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder {

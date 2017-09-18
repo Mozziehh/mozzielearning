@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+//声明jcenter代码仓库，声明依赖插件的版本
 buildscript {
     repositories {
         jcenter()
@@ -11,7 +11,7 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+//用于配置项目的整体属性
 allprojects {
     repositories {
         jcenter()

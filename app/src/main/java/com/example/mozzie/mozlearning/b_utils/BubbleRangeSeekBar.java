@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RadialGradient;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.os.Parcel;
@@ -52,6 +53,7 @@ public class BubbleRangeSeekBar extends View {
      * 浮点型的矩形
      */
     private RectF line = new RectF();
+    private Rect priceText = new Rect();
     /**
      * 滑动时的颜色
      */
@@ -297,18 +299,18 @@ public class BubbleRangeSeekBar extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mHeight=h;
-        int seekBarRadius = h / 10; //半径为高度的五分之一
+        int seekBarRadius = DisplayUtil.dip2px(getContext(), 27/2); //半径为高度的五分之一
 
-        lineLeft = seekBarRadius;
+        lineLeft = DisplayUtil.dip2px(getContext(), 15);
         lineRight = w - seekBarRadius;
-        lineTop = seekBarRadius - seekBarRadius / 8 + 250;
-        lineBottom = seekBarRadius + seekBarRadius / 8 + 250;
+        lineTop = DisplayUtil.dip2px(getContext(), 74);
+        lineBottom = DisplayUtil.dip2px(getContext(), 78);
         lineWidth = lineRight - lineLeft;
         line.set(lineLeft, lineTop, lineRight, lineBottom);
         lineCorners = (int) ((lineBottom - lineTop) * 0.45f);
 
-        leftSB.onSizeChanged(seekBarRadius, seekBarRadius + 250, h, lineWidth, cellsCount > 1, seekBarBackground, getContext());
-        rightSB.onSizeChanged(seekBarRadius, seekBarRadius + 250, h, lineWidth, cellsCount > 1, seekBarBackground, getContext());
+        leftSB.onSizeChanged(seekBarRadius, DisplayUtil.dip2px(getContext(), 76), h, lineWidth, cellsCount > 1, seekBarBackground, getContext());
+        rightSB.onSizeChanged(seekBarRadius, DisplayUtil.dip2px(getContext(), 76), h, lineWidth, cellsCount > 1, seekBarBackground, getContext());
 
         if (cellsCount == 1) {
             rightSB.left += leftSB.widthSize;
@@ -337,15 +339,15 @@ public class BubbleRangeSeekBar extends View {
          */
         paint.setColor(Color.parseColor("#555555"));
         float dif=(maxValue-minValue)/mSpacerCount;
-        paint.setTextSize(textSize);
+        paint.setTextSize(DisplayUtil.sp2px(getContext(), 12));
         paint.setAntiAlias(true);
         if(dif < 1.0) {
             mSpacerCount = (int)(maxValue-minValue);
             dif = 1.0f;
         }
-        float spacerWidth=(float)lineWidth/mSpacerCount;
 
-        int textBottom =mHeight/4*3;
+        float spacerWidth=(float)lineWidth/mSpacerCount;
+        int textBottom = DisplayUtil.dip2px(getContext(), 100);
         for(int i=0;i<mSpacerCount+1;i++){
             float textleft=lineLeft*0.8f+spacerWidth*i;
             int text=(int)(minValue+dif*i);
@@ -354,13 +356,15 @@ public class BubbleRangeSeekBar extends View {
                 numtext="不限";
             }
             float numtextWidth=paint.measureText(numtext);
+
+            paint.getTextBounds(numtext, 0, 1, priceText);
             if(i == 0) {
-                canvas.drawText(numtext+"",textleft + numtextWidth/2,textBottom,paint);
+                canvas.drawText(numtext+"",textleft + numtextWidth/2 - DisplayUtil.dip2px(getContext(), 5),textBottom - priceText.top,paint);
             } else if (i != mSpacerCount){
-                canvas.drawText(numtext+"",textleft- numtextWidth/2,textBottom,paint);
+                canvas.drawText(numtext+"",textleft- numtextWidth/2,textBottom - priceText.top,paint);
             }
             if(i==mSpacerCount) {
-                canvas.drawText(numtext+"",textleft - numtextWidth,textBottom,paint);
+                canvas.drawText(numtext+"",textleft - numtextWidth + DisplayUtil.dip2px(getContext(), 5),textBottom - priceText.top,paint);
                 break;
             }
         }
@@ -406,15 +410,15 @@ public class BubbleRangeSeekBar extends View {
         Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
                 R.drawable.car_price_drag_tips);
         Matrix matrix = new Matrix();
-        float scaleWidth = ((float) 0.75);
-        float scaleHeight = ((float) 0.75);
+        float scaleWidth = (float)DisplayUtil.dip2px(getContext(), 40)/(float)bitmap.getWidth();
+        float scaleHeight = (float)DisplayUtil.dip2px(getContext(), 40)/(float)bitmap.getWidth();
         matrix.postScale(scaleWidth, scaleHeight);
         bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
         if(currTouch == leftSB){
-            canvas.drawBitmap(bitmap, bitmapLeft - 20, 200 - leftSB.widthSize, paint);
+            canvas.drawBitmap(bitmap, bitmapLeft - DisplayUtil.dip2px(getContext(), 6.75f), DisplayUtil.dip2px(getContext(), 23), paint);
         }else{
-            canvas.drawBitmap(bitmap, bitmapLeft - 20, 200 - leftSB.widthSize, paint);
+            canvas.drawBitmap(bitmap, bitmapLeft - DisplayUtil.dip2px(getContext(), 6.75f), DisplayUtil.dip2px(getContext(), 23), paint);
         }
 
         if (bitmap.isRecycled()) { // 判断图片是否回收
@@ -423,24 +427,26 @@ public class BubbleRangeSeekBar extends View {
 
         paint.setColor(Color.WHITE);
         paint.setStrokeWidth(10);
-        paint.setTextSize(50);
+        paint.setTextSize(DisplayUtil.sp2px(getContext(), 14));
         String currentTag = "";
 
         if(currTouch == leftSB){
             int currentRange = (int)(getCurrentRange()[0]);
             currentTag = (String.valueOf(currentRange));
+            paint.getTextBounds(currentTag, 0, 1, priceText);
             if(currentRange < 10){
-                canvas.drawText(currentTag, textLeft + 44, 185, paint);
+                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 10f), DisplayUtil.dip2px(getContext(), 38) - priceText.top, paint);
             }else{
-                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft : textLeft + 36, 185, paint);
+                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft : textLeft + DisplayUtil.dip2px(getContext(), 6f), DisplayUtil.dip2px(getContext(), 38)  - priceText.top, paint);
             }
         }else{
             int currentRange = (int)(getCurrentRange()[1]);
             currentTag = (String.valueOf(currentRange));
+            paint.getTextBounds(currentTag, 0, 1, priceText);
             if(currentRange < 10){
-                canvas.drawText(currentTag, textLeft + 44, 185, paint);
+                canvas.drawText(currentTag, textLeft + DisplayUtil.dip2px(getContext(), 10f), DisplayUtil.dip2px(getContext(), 38) - priceText.top, paint);
             }else{
-                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft: textLeft + 36, 185, paint);
+                canvas.drawText(currentTag, textLeft < lineLeft ? lineLeft: textLeft + DisplayUtil.dip2px(getContext(), 6f), DisplayUtil.dip2px(getContext(), 38) - priceText.top, paint);
             }
         }
 
@@ -617,12 +623,12 @@ public class BubbleRangeSeekBar extends View {
          * 设置滑动的效果
          */
         void onSizeChanged(int centerX, int centerY, int hSize, int parentLineWidth, boolean cellsMode, int[] bmpResId, Context context) {
-            heightSize = hSize/10*2; //设置直径为高度的2/5
-            widthSize = (int) (heightSize * 0.9f);
-            left = centerX - widthSize / 2;
-            right = centerX + widthSize / 2;
-            top = centerY - heightSize / 2;
-            bottom = centerY + heightSize / 2;
+            heightSize = DisplayUtil.dip2px(getContext(), 20); //设置直径为高度的2/5
+            widthSize = DisplayUtil.dip2px(getContext(), 20);
+            left = centerX - widthSize ;
+            right = centerX + widthSize ;
+            top = centerY - heightSize ;
+            bottom = centerY + heightSize ;
             mContext = context;
             mSeekbarbg = bmpResId;
             if (cellsMode) {
@@ -657,12 +663,12 @@ public class BubbleRangeSeekBar extends View {
             canvas.translate(offset, 0);
             Bitmap original = BitmapFactory.decodeResource(mContext.getResources(), mSeekbarbg[index]);
             Matrix matrix = new Matrix();
-            float scaleWidth = (float)0.75;
-            float scaleHeight = (float)0.75;
+            float scaleWidth = (float)DisplayUtil.dip2px(getContext(), 40)/(float)original.getWidth();
+            float scaleHeight = (float)DisplayUtil.dip2px(getContext(), 40)/(float)original.getWidth();
             matrix.postScale(scaleWidth, scaleHeight);
             bmp = Bitmap.createBitmap(original, 0, 0, original.getWidth(), original.getHeight(), matrix, true);
             if (bmp != null) {
-                canvas.drawBitmap(bmp, left - 25, top - 25, null);
+                canvas.drawBitmap(bmp, left, top, null);
             } else {
                 canvas.translate(left, 0);
                 drawDefault(canvas);

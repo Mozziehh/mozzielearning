@@ -16,4 +16,15 @@
         android:id="@+id/checkbox"
         android:layout_width="30dp"
         android:layout_height="30dp" />
+    <Button
+        android:id="@+id/buttoncircle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="press_to_cicle"/>
+
+    <ImageView
+        android:id="@+id/circle_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/cicle_press"/>
 </LinearLayout>

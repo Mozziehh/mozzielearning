@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="78dp"
+    android:layout_height="37dp"
+    android:layout_marginLeft="5.5dp"
+    android:layout_marginRight="5.5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/colorGray">
+
+    <ImageView
+        android:id="@+id/recycle_background"
+        android:layout_width="78dp"
+        android:layout_height="37dp"
+        android:background="@drawable/recycleview_back_selector"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/recycle_rightarrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@id/recycle_background"
+        android:layout_alignRight="@id/recycle_background"
+        android:background="@drawable/car_dianping_selecticon"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/text_shiftprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="ss"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorTextGray" />
+</RelativeLayout>

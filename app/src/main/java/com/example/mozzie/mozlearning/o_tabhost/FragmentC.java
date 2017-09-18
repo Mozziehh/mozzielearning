@@ -27,7 +27,7 @@ public class FragmentC extends Fragment{
         ccc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NivagationActivity.startActivity(getActivity());
+                com.example.mozzie.mozlearning.o_tabhost.NivagationActivity.startActivity(getActivity());
             }
         });
         return view;

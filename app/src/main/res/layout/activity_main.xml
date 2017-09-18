@@ -126,6 +126,18 @@
             android:onClick="OnListviewLaunch"
             android:text="列表页"/>
 
+        <Button
+            android:id="@+id/activity_recycleviewshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnRecycleviewLaunch"
+            android:text="recycleview"/>
+        <Button
+            android:id="@+id/activity_overdrawshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnOverdrawLaunch"
+            android:text="过度绘制探测器"/>
     </LinearLayout>
 
 

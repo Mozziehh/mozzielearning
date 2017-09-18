@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#F6F6F6</color>
+    <color name="colorDarKGary">#FAFAFA</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorOrage">#FF552E</color>
+    <color name="colorOrageback">#FFEFEB</color>
+    <color name="colorTextGray">#555555</color>
+    <color name="colorSeekbarBackground">#D8D8D8</color>
 </resources>

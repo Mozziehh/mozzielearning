@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -43,6 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".a_activity.LaunchModeActivity"></activity>
+        <!--<activity android:name=".a_activity.LaunchModeActivity"></activity>-->
         <activity android:name=".f_fragment.FragmentActivity"></activity>
         <activity android:name=".g_broadcastreceiver.BroadcastRecevierActivity"></activity>
         <activity android:name=".h_contentprovider.FileoutputStreamActivity"></activity>
@@ -69,6 +71,9 @@
             android:theme="@style/AppTheme.Moz"></activity>
         <activity android:name=".z_work_drawerlayout.MyTestSwipeActivity"
             android:theme="@style/AppTheme.Moz"></activity>
+        <activity android:name=".p_recycleview.RecycleviewActivity"></activity>
+        <activity android:name=".p_recycleview.CarShiftpriceActivity"></activity>
+        <activity android:name=".s_overdraw.OverdrawActivity"></activity>
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

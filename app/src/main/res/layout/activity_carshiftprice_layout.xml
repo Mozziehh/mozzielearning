@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="370dp"
+    android:background="@color/colorWhite">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/carshiftprice_layout"
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="17dp"
+        android:paddingLeft="9.5dp"
+        android:paddingRight="9.5dp"
+        android:background="@color/colorDarKGary">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/price_shfit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/colorOrage"
+        android:textSize="14sp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/carshiftprice_layout"
+        android:text="不限"/>
+
+
+
+    <com.example.mozzie.mozlearning.b_utils.BubbleRangeSeekBar
+        android:layout_below="@id/carshiftprice_layout"
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:layout_centerHorizontal="true"
+        app:lineColorEdge="#D8D8D8"
+        app:lineColorSelected="#FF552E"
+        app:max="60"
+        app:min="0"
+        app:cells="60"
+        app:reserve="0"
+        app:bsb_bubble_drop_size="14"
+        app:bsb_bubble_drop_color="#FFFFFF"
+        app:bsb_bubble_drop_resid="@drawable/car_price_drag_tips"/>
+    <Button
+        android:id="@+id/carshiftprice_ensure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/seekBar"
+        android:background="@color/colorOrage"
+        android:textSize="16sp"
+        android:text="确定"
+        android:textColor="@color/colorWhite"/>
+</RelativeLayout>

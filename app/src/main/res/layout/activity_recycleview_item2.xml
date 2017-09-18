@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="71dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="2dp">
+
+    <ImageView
+        android:id="@+id/recycle_background"
+        android:layout_width="50dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/recycleview_back_selector"/>
+    <ImageView
+        android:id="@+id/recycle_imageview"
+        android:layout_width="35dp"
+        android:layout_height="14dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/leak_canary_icon"/>
+
+    <TextView
+        android:id="@+id/recycle_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycle_imageview"
+        android:layout_marginTop="3dp"
+        android:textSize="6sp"/>
+</RelativeLayout>

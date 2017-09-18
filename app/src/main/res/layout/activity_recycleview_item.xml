@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="62dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp">
+
+    <ImageView
+        android:id="@+id/recycle_background"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/recycleview_back_selector"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/recycle_rightarrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@id/recycle_background"
+        android:layout_alignRight="@id/recycle_background"
+        android:background="@drawable/car_dianping_selecticon"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/recycle_imageview"
+        android:layout_width="70dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/recycle_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycle_imageview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@drawable/recycleview_text_selector"
+        android:gravity="center"
+        android:text="汽车"
+        android:textSize="12sp"/>
+
+
+</RelativeLayout>

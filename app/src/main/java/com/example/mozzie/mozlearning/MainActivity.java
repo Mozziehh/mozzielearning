@@ -24,6 +24,8 @@ import com.example.mozzie.mozlearning.l_http.HttpUrlConnectionAcitivity;
 import com.example.mozzie.mozlearning.n_listview.ListviewActivity;
 import com.example.mozzie.mozlearning.o_tabhost.BottomNavigationActivity;
 import com.example.mozzie.mozlearning.o_tabhost.TabHostActivity;
+import com.example.mozzie.mozlearning.p_recycleview.RecycleviewActivity;
+import com.example.mozzie.mozlearning.s_overdraw.OverdrawActivity;
 import com.example.mozzie.mozlearning.z_work_drawerlayout.DrawerlayoutActivity;
 
 public class MainActivity extends Activity {
@@ -115,5 +117,11 @@ public class MainActivity extends Activity {
     }
     public void OnNavigationViewLaunch(View view){
         BottomNavigationActivity.startActivity(this);
+    }
+    public void OnRecycleviewLaunch(View view){
+        RecycleviewActivity.startActivity(this);
+    }
+    public void OnOverdrawLaunch(View view){
+        OverdrawActivity.startActivity(this);
     }
 }

@@ -10,6 +10,7 @@ import com.example.mozzie.mozlearning.MainActivity;
 import com.example.mozzie.mozlearning.R;
 import com.example.mozzie.mozlearning.b_utils.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -30,10 +31,10 @@ public class ListviewActivity extends Activity{
         mListview.setAdapter(mylistAdapter);
     }
 
-    private HashMap<String, String> initListData() {
-        HashMap<String, String> list = new HashMap<>();
+    private ArrayList<String> initListData() {
+        ArrayList<String> list = new ArrayList<>();
         for (int i = 0 ; i < 1000; i++){
-            list.put("" + i, i + 100 + "");
+            list.add("" + i);
         }
         return list;
     }
