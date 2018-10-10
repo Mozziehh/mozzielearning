@@ -1,11 +1,14 @@
 package com.example.mozzie.mozlearning.b_utils;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -20,13 +23,21 @@ public class TitleHolder {
     private boolean mIsTabShpw; //tab是否展示
     private boolean isForbidScroll; //单个tab就不存在展示问题
     AlphaAnimation animationOut,animationIn;
-    private View mViewUp, mViewDown;
+    private View mViewUp, mViewDown, mViewOpp;
     int mTopMax = 0;
     int mBottomMax = 0;
+    private Context mContext;
     public TitleHolder(View textViewUp, View textViewDown) {
         mViewUp = textViewUp;
         mViewDown = textViewDown;
         initAnimation();
+    }
+
+    public TitleHolder(Context context, View textViewUp, View textViewDown, View textViewOpp){
+        mContext = context;
+        mViewUp = textViewUp;
+        mViewDown = textViewDown;
+        mViewOpp = textViewOpp;
     }
 
     public void setTabShow(boolean b){
@@ -211,5 +222,101 @@ public class TitleHolder {
     private void setClickable(boolean isClickable){
         mViewUp.setClickable(isClickable);
         mViewDown.setClickable(isClickable);
+    }
+
+    /**
+     * 展示title栏
+     */
+    public void showTitle() {
+        if(isAnimatorRunning()){
+            return;
+        }
+        mViewUp.setVisibility(View.VISIBLE);
+        int bottomLine = DisplayUtil.dip2px(mViewUp.getContext(), 45);
+        ValueAnimator va = createDropAnim(mViewUp, 0, bottomLine);
+        va.addListener(new AnimatorListenerAdapter() {
+            /**
+             * {@inheritDoc}
+             *
+             * @param animation
+             */
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                mViewOpp.setVisibility(View.VISIBLE);
+            }
+        });
+        va.setDuration(300);
+        va.start();
+    }
+
+    /**
+     * 隐藏title栏
+     */
+    public void hideTitle() {
+        if(isAnimatorRunning()){
+            return;
+        }
+        int bottomLine = DisplayUtil.dip2px(mViewUp.getContext(), 45);
+
+        ValueAnimator va = createDropAnim(mViewUp, bottomLine, 0);
+        va.setDuration(300);
+        va.addListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                super.onAnimationStart(animation);
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mViewOpp.setVisibility(View.GONE);
+                mViewUp.setVisibility(View.INVISIBLE);
+
+            }
+        });
+        va.start();
+    }
+
+    private ValueAnimator mValueAnimator;
+    /**
+     *
+     * @param view
+     * @param start 初始状态值
+     * @param end 结束状态值
+     * @return
+     */
+    private ValueAnimator createDropAnim(final  View view, final int start, int end) {
+        LOGGER.d("TitleHolder", "height = " + view.getHeight() + ", " + "width = " + view.getWidth() + ", " + mViewDown.getHeight());
+        mValueAnimator = ValueAnimator.ofInt(start, end);
+        mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int value = (Integer) animation.getAnimatedValue();//根据时间因子的变化系数进行设置高度
+                view.layout(0, 0- DisplayUtil.dip2px(mViewUp.getContext(), 45) + value, 1440, 180 - DisplayUtil.dip2px(mViewUp.getContext(), 45) + value);
+                mViewDown.layout(0 , value, 1440 , 2292 + DisplayUtil.dip2px(mViewUp.getContext(), 45));
+                mViewOpp.layout(0, 0- DisplayUtil.dip2px(mViewUp.getContext(), 45) + value, 0, 180 - DisplayUtil.dip2px(mViewUp.getContext(), 45) + value);
+            }
+        });
+        return mValueAnimator;
+    }
+
+
+    private boolean isAnimatorRunning() {
+        if(mValueAnimator == null){
+            return false;
+        }
+        if(mValueAnimator != null && mValueAnimator.isRunning()){
+            return true;
+        }
+        return false;
+    }
+
+
+    public String getTitleSie() {
+        return ":" + mViewUp.getHeight() + ":" + mViewUp.getWidth();
+//        LOGGER.d("TitleHolder", "height = " + mViewUp.getHeight() + ", " + "width = " + mViewUp.getWidth() + ", " + mViewDown.getHeight());
+
     }
 }

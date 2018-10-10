@@ -3,6 +3,7 @@ package com.example.mozzie.mozlearning.o_tabhost;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,7 +11,6 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
 import android.view.LayoutInflater;
@@ -33,7 +33,7 @@ import com.example.mozzie.mozlearning.b_utils.ToastUtils;
  * Created by mozzie on 17/5/15.
  */
 
-public class FragmentA extends Fragment{
+public class FragmentA extends Fragment {
 
     EditText editText;
     CheckBox checkBox;

@@ -486,13 +486,39 @@ public class BubbleRangeSeekBar extends View {
             case MotionEvent.ACTION_DOWN:
                 isDrawDrop = true;
                 boolean touchResult = false;
-                if (rightSB.currPercent >= 1 && leftSB.collide(event)) {
-                    currTouch = leftSB;
-                    touchResult = true;
-                } else if (rightSB.collide(event)) {
+//                if (rightSB.currPercent >= 1 && leftSB.collide(event)) {
+//                    currTouch = leftSB;
+//                    touchResult = true;
+//                } else if (rightSB.collide(event)) {
+//                    cu0rrTouch = rightSB;
+//                    touchResult = true;
+//                } else if (leftSB.collide(event)) {
+//                    currTouch = leftSB;
+//                    touchResult = true;
+//                }
+//                if(leftSB.currPercent == 0 && rightSB.currPercent == 0 && rightSB.collide(event)){
+//                    currTouch = rightSB;
+//                    touchResult = true;
+//                }else if(leftSB.currPercent == 1 && rightSB.currPercent == 1 && leftSB.collide(event)){
+//                    currTouch = leftSB;
+//                    touchResult = true;
+//                }else if(leftSB.collide(event)){
+//                    currTouch = leftSB;
+//                    touchResult = true;
+//                }else if(rightSB.collide(event)){
+//                    currTouch = rightSB;
+//                    touchResult = true;
+//                }
+                if(leftSB.currPercent == 0 && rightSB.currPercent == 0 && rightSB.collide(event)){
                     currTouch = rightSB;
                     touchResult = true;
-                } else if (leftSB.collide(event)) {
+                }else if(leftSB.currPercent == 1 && rightSB.currPercent == 1 && leftSB.collide(event)){
+                    currTouch = leftSB;
+                    touchResult = true;
+                }else if(rightSB.collide(event)){
+                    currTouch = rightSB;
+                    touchResult = true;
+                }else if(leftSB.collide(event)){
                     currTouch = leftSB;
                     touchResult = true;
                 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mozzie.mozlearning">
 
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
@@ -9,13 +10,17 @@
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".MyApplication">
+        android:name=".MyApplication"
+        tools:overrideLibrary="com.airbnb.lottie">
         <service android:name=".k_service.MyService"></service>
         <service android:name=".k_service.MyIntentService"></service>
         <activity android:name=".MainActivity">
@@ -74,6 +79,13 @@
         <activity android:name=".p_recycleview.RecycleviewActivity"></activity>
         <activity android:name=".p_recycleview.CarShiftpriceActivity"></activity>
         <activity android:name=".s_overdraw.OverdrawActivity"></activity>
+        <activity android:name=".t_weixinsoter.WeixinsoterActivity"></activity>
+        <activity android:name="com.tencent.soter.demo.ui.SoterDemoUI"></activity>
+        <activity android:name=".u_jsonreflacter.JsonParserActivity"></activity>
+        <activity android:name=".v_file.FileActivity"></activity>
+        <activity android:name=".w_leak.LeakTestActivity"></activity>
+        <activity android:name=".w_lottie.LottieActivity"></activity>
+        <activity android:name=".q_designparent.mvp.aa_parten.PartenActivity"></activity>
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

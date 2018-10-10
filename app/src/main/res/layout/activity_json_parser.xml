@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edittext_jsonText"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <Button
+        android:id="@+id/button_parserButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点我进行普通解析"/>
+    <Button
+        android:id="@+id/button_parserGsonButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点我进行GSON解析"/>
+    <Button
+        android:id="@+id/button_parserGsonNullButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点我进行GSON非空解析"/>
+    <TextView
+        android:id="@+id/textview_jsonResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

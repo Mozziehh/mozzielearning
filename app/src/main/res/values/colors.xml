@@ -11,4 +11,5 @@
     <color name="colorOrageback">#FFEFEB</color>
     <color name="colorTextGray">#555555</color>
     <color name="colorSeekbarBackground">#D8D8D8</color>
+    <color name="colorErrorHint">#FF5454</color>
 </resources>

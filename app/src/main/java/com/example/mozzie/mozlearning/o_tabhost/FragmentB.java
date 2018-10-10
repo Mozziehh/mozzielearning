@@ -1,5 +1,6 @@
 package com.example.mozzie.mozlearning.o_tabhost;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -8,7 +9,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.HardwarePropertiesManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -39,7 +39,7 @@ import java.util.HashMap;
  * Created by mozzie on 17/5/15.
  */
 
-public class FragmentB extends Fragment{
+public class FragmentB extends Fragment {
 
     private MylistAdapter mylistAdapter;
     private TabHolder mTabHodler;

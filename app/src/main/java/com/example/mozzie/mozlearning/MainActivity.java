@@ -3,6 +3,7 @@ package com.example.mozzie.mozlearning;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Toast;
@@ -14,7 +15,6 @@ import com.example.mozzie.mozlearning.b_utils.LOGGER;
 import com.example.mozzie.mozlearning.b_utils.ToastUtils;
 import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
-import com.example.mozzie.mozlearning.f_fragment.FragmentActivity;
 import com.example.mozzie.mozlearning.g_broadcastreceiver.BroadcastRecevierActivity;
 import com.example.mozzie.mozlearning.h_contentprovider.ContentProviderConnectActivity;
 import com.example.mozzie.mozlearning.i_sharepreference.SharePreferenceActivity;
@@ -26,6 +26,9 @@ import com.example.mozzie.mozlearning.o_tabhost.BottomNavigationActivity;
 import com.example.mozzie.mozlearning.o_tabhost.TabHostActivity;
 import com.example.mozzie.mozlearning.p_recycleview.RecycleviewActivity;
 import com.example.mozzie.mozlearning.s_overdraw.OverdrawActivity;
+import com.example.mozzie.mozlearning.v_file.FileActivity;
+import com.example.mozzie.mozlearning.w_leak.LeakTestActivity;
+import com.example.mozzie.mozlearning.w_lottie.LottieActivity;
 import com.example.mozzie.mozlearning.z_work_drawerlayout.DrawerlayoutActivity;
 
 public class MainActivity extends Activity {
@@ -73,7 +76,7 @@ public class MainActivity extends Activity {
      * @param view
      */
     public void OnFragmentLaunch(View view){
-        FragmentActivity.startActivity(this);
+//        FragmentActivity.startActivity(this);
     }
 
     /**
@@ -124,4 +127,20 @@ public class MainActivity extends Activity {
     public void OnOverdrawLaunch(View view){
         OverdrawActivity.startActivity(this);
     }
+
+
+
+
+    public void OnFileLaunch(View view){
+        FileActivity.startActivity(this);
+    }
+
+    public void OnLeakTest(View view){
+        LeakTestActivity.startActivity(this);
+    }
+
+    public void OnLottieClick(View view){
+        LottieActivity.startActivity(this);
+    }
+
 }

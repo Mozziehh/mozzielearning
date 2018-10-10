@@ -1,11 +1,11 @@
 package com.example.mozzie.mozlearning.o_tabhost;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -88,12 +88,12 @@ public class BottomNavigationActivity extends FragmentActivity implements Bottom
         if (mCurrentFragment != toFragment) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-
-            if (toFragment.isAdded() == false) {
-                ft.hide(mCurrentFragment).add(R.id.category_page, toFragment).commit();
-            } else {
-                ft.hide(mCurrentFragment).show(toFragment).commit();
-            }
+//
+//            if (toFragment.isAdded() == false) {
+//                ft.hide(mCurrentFragment).add(R.id.category_page, toFragment).commit();
+//            } else {
+//                ft.hide(mCurrentFragment).show(toFragment).commit();
+//            }
         }
     }
 
@@ -106,11 +106,11 @@ public class BottomNavigationActivity extends FragmentActivity implements Bottom
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        if (toFragment.isAdded() == false) {
-            ft.hide(fromFragment).add(R.id.category_page, toFragment).commit();
-        } else {
-            ft.hide(fromFragment).show(toFragment).commit();
-        }
+//        if (toFragment.isAdded() == false) {
+//            ft.hide(fromFragment).add(R.id.category_page, toFragment).commit();
+//        } else {
+//            ft.hide(fromFragment).show(toFragment).commit();
+//        }
 
     }
 }

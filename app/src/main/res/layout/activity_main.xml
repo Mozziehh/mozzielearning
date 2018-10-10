@@ -138,6 +138,38 @@
             android:layout_height="wrap_content"
             android:onClick="OnOverdrawLaunch"
             android:text="过度绘制探测器"/>
+        <Button
+            android:id="@+id/activity_wechatLaunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnWechatSoteLaunch"
+            android:text="微信指纹登录验证"/>
+
+        <Button
+            android:id="@+id/activity_jsonParser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnJsonParser"
+            android:text="json万能解析"/>
+
+        <Button
+            android:id="@+id/activity_filelaunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnFileLaunch"
+            android:text="文件操作"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnLeakTest"
+            android:text="内存泄漏"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnLottieClick"
+            android:text="Lottie"/>
     </LinearLayout>
 
 

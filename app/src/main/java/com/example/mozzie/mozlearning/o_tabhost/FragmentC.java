@@ -1,9 +1,10 @@
 package com.example.mozzie.mozlearning.o_tabhost;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import com.example.mozzie.mozlearning.b_utils.LOGGER;
  * Created by mozzie on 17/5/15.
  */
 
-public class FragmentC extends Fragment{
+public class FragmentC extends Fragment {
 
     @Nullable
     @Override

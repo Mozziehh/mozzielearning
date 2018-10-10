@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:id="@+id/overdraw_down"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/overdraw_opp"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@color/colorOrage"
+            android:visibility="visible"></RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/overdraw_opp"
+            android:background="@color/colorWhite">
+            <WebView
+                android:id="@+id/overdraw_webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorOrage"></WebView>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/textview10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dsfdsfsdfds"
+            android:layout_below="@id/overdraw_opp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/overdraw_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:text="ddsafdsfadsfdsfdsfsdf"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:background="@color/colorAccent"/>
+    </RelativeLayout>
+
+
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/overdraw_down"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/colorOrage"-->
+        <!--android:textSize="80sp"-->
+        <!--android:text="11111111111111111111111111111111111111111"-->
+        <!--android:visibility="gone"/>-->
+
+
+</RelativeLayout>

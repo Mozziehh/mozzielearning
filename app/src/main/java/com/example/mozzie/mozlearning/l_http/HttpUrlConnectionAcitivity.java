@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.mozzie.mozlearning.MainActivity;
 import com.example.mozzie.mozlearning.R;
 import com.example.mozzie.mozlearning.b_utils.LOGGER;
+import com.example.mozzie.mozlearning.b_utils.ToastUtils;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
 
 import java.io.BufferedReader;
@@ -27,7 +28,7 @@ import java.net.URL;
 
 public class HttpUrlConnectionAcitivity extends Aactivity implements View.OnClickListener{
 
-    private Button mHttpButton;
+    private Button mHttpButton, mButtonToast;
     private TextView mTextView;
     private HttpAnsyTask myHttpAnsyTask;
     @Override
@@ -37,6 +38,8 @@ public class HttpUrlConnectionAcitivity extends Aactivity implements View.OnClic
 
         mHttpButton = (Button)findViewById(R.id.button14);
         mHttpButton.setOnClickListener(this);
+        mButtonToast = (Button)findViewById(R.id.buttonToast);
+        mButtonToast.setOnClickListener(this);
 
         mTextView = (TextView)findViewById(R.id.textview8);
 
@@ -58,6 +61,9 @@ public class HttpUrlConnectionAcitivity extends Aactivity implements View.OnClic
             case R.id.button14:
                 myHttpAnsyTask = new HttpAnsyTask();
                 myHttpAnsyTask.execute();
+                break;
+            case R.id.buttonToast:
+                ToastUtils.show(getBaseContext(), "toast");
                 break;
         }
     }

@@ -2,8 +2,9 @@ package com.example.mozzie.mozlearning;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
-import com.squareup.leakcanary.LeakCanary;
+import com.example.mozzie.mozlearning.b_utils.LOGGER;
 
 /**
  * Created by mozzie on 16/12/27.
@@ -16,16 +17,20 @@ public class MyApplication extends Application {
     @Override public void onCreate() {
         super.onCreate();
         mContext = this.getApplicationContext();
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-//            // This process is dedicated to LeakCanary for heap analysis.
-//            // You should not init your app in this process.
-//            return;
-//        }
-//        LeakCanary.install(this);
-        // Normal app init code...
+
+        initWechatSoter();
+    }
+
+    private void initWechatSoter() {
+
     }
 
     public static Context getMyContext(){
         return mContext;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
     }
 }
