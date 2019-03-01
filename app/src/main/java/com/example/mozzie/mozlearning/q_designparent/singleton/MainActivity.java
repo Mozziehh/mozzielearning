@@ -1,5 +1,10 @@
 package com.example.mozzie.mozlearning.q_designparent.singleton;
 
+import android.view.View;
+
+import java.util.Iterator;
+import java.util.Vector;
+
 /**
  * Created by mozzie on 17/8/5.
  */
@@ -66,5 +71,23 @@ public class MainActivity {
         System.out.println("执行时间：" + (System.currentTimeMillis() - cur));
         System.out.println("=====================");
 
+        test1();
+    }
+
+    public static void test1()  {
+        Vector<Integer> vector = new Vector<>();
+        for (int i = 0; i < 6; i++) {
+            vector.add(Integer.valueOf(i));
+        }
+
+        // 复现方法一
+        Iterator<Integer> iterator = vector.iterator();
+        while (iterator.hasNext()) {
+            Integer integer = iterator.next();
+            if (integer.intValue() == 5) {
+                vector.add(10);
+            }
+        }
     }
 }
+

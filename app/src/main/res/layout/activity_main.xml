@@ -13,7 +13,8 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
         <Button
             android:id="@+id/activity_lifecycle"
             android:layout_width="match_parent"
@@ -42,6 +43,13 @@
             android:text="intent跳转" />
 
         <Button
+            android:id="@+id/activity_broadcastreceiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnBroadcastLaunch"
+            android:text="广播接收者" />
+
+        <Button
             android:id="@+id/activity_launchmode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,13 +62,6 @@
             android:layout_height="wrap_content"
             android:onClick="OnFragmentLaunch"
             android:text="启动fragment" />
-
-        <Button
-            android:id="@+id/activity_broadcastreceiver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="OnBroadcastLaunch"
-            android:text="广播接收者" />
 
         <Button
             android:id="@+id/activity_sharepreference"
@@ -170,6 +171,31 @@
             android:layout_height="wrap_content"
             android:onClick="OnLottieClick"
             android:text="Lottie"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="OnXuanfuClick"
+            android:text="悬浮窗"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_margin="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shadow"/>
+            <View
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_margin="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shadow2"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 

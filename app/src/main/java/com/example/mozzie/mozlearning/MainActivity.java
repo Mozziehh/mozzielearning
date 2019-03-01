@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.mozzie.mozlearning.a_activity.FoucesActivity;
 import com.example.mozzie.mozlearning.a_activity.LaunchModeActivity;
 import com.example.mozzie.mozlearning.a_activity.LifeCycleActivity;
+import com.example.mozzie.mozlearning.ad_xuanfuchuang.XuanfoActivity;
 import com.example.mozzie.mozlearning.b_utils.LOGGER;
 import com.example.mozzie.mozlearning.b_utils.ToastUtils;
 import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
@@ -37,6 +38,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void OnLifeCycle(View view){
@@ -142,5 +144,8 @@ public class MainActivity extends Activity {
     public void OnLottieClick(View view){
         LottieActivity.startActivity(this);
     }
+
+    public void OnXuanfuClick(View view) { XuanfoActivity.startActivity(this);}
+
 
 }

@@ -29,7 +29,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".a_activity.LifeCycleActivity"></activity>
+        <activity android:name=".a_activity.LifeCycleActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|locale"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".a_activity.FoucesActivity"></activity>
         <activity android:name=".c_database.DataBaseActivity"></activity>
         <activity android:name=".d_intent.Aactivity"></activity>
@@ -79,13 +84,13 @@
         <activity android:name=".p_recycleview.RecycleviewActivity"></activity>
         <activity android:name=".p_recycleview.CarShiftpriceActivity"></activity>
         <activity android:name=".s_overdraw.OverdrawActivity"></activity>
-        <activity android:name=".t_weixinsoter.WeixinsoterActivity"></activity>
-        <activity android:name="com.tencent.soter.demo.ui.SoterDemoUI"></activity>
-        <activity android:name=".u_jsonreflacter.JsonParserActivity"></activity>
         <activity android:name=".v_file.FileActivity"></activity>
         <activity android:name=".w_leak.LeakTestActivity"></activity>
         <activity android:name=".w_lottie.LottieActivity"></activity>
         <activity android:name=".q_designparent.mvp.aa_parten.PartenActivity"></activity>
+        <activity android:name=".ad_xuanfuchuang.XuanfoActivity"></activity>
+        <activity android:name=".ad_xuanfuchuang.XuanfuWebActivity"></activity>
+
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

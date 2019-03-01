@@ -12,4 +12,5 @@
     <color name="colorTextGray">#555555</color>
     <color name="colorSeekbarBackground">#D8D8D8</color>
     <color name="colorErrorHint">#FF5454</color>
+    <color name="home_activity_bg_color">#f6f6f6</color>
 </resources>
