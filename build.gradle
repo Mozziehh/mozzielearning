@@ -2,8 +2,8 @@
 //声明jcenter代码仓库，声明依赖插件的版本
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0'
@@ -15,12 +15,13 @@ buildscript {
 //用于配置项目的整体属性
 allprojects {
     repositories {
+        google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        google()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

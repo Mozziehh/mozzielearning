@@ -19,5 +19,16 @@ public class MainActivity {
         Target target1 = new Adapter();
         target1.request();
 
+        Adapter adapter = new Adapter();
+        adapter.getRequest(1, "huhao", new Adapter.MyCallback() {
+            @Override
+            public void callback(int code, String errormsg) {
+                System.out.println("code = " + code + "," + "errormsg = " + errormsg);
+            }
+        });
+
+        Object o = null;
+        System.out.println(String.valueOf(o));
+//        System.out.println((String) o);
     }
 }

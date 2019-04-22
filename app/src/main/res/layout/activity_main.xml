@@ -178,6 +178,18 @@
             android:onClick="OnXuanfuClick"
             android:text="悬浮窗"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onZifuClick"
+            android:text="字符汉字宽度"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onJniClick"
+            android:text="onJniClick"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="260dp"

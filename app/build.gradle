@@ -1,11 +1,15 @@
 apply plugin: 'com.android.application'
 
+def static releaseTime(){
+    return new Date().getTime()
+}
+
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.mozzie.mozlearning"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -15,6 +19,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            buildConfigField 'String', 'versionDateTime', releaseTime()
+//            buildConfigField('String', 'BUILD_TIME', releaseTime())
+        }
+        debug{
+            buildConfigField 'String', 'BUILD_TIME', "\"${releaseTime()}\""
         }
     }
     testOptions {
@@ -23,6 +32,11 @@ android {
     repositories {
         flatDir{
             dirs 'libs'
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
         }
     }
 //    buildscript{
@@ -45,6 +59,12 @@ android {
 //    }
 //    aaptOptions {
 //        additionalParameters '--auto-add-overlay'
+//    }
+//    sourceSets {
+//        main() {
+//            jniLibs.srcDirs = ['src/main/libs']
+//            jni.srcDirs = [] //屏蔽掉默认的jni编译生成过程
+//        }
 //    }
 }
 
@@ -160,3 +180,4 @@ dependencies {
 //check task 用于执行检查任务
 //build 执行了check和assemble的所有工作
 //clean 项目进行中间清理操作
+

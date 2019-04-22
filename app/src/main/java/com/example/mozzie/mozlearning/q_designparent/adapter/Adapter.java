@@ -5,4 +5,12 @@ public class Adapter extends Adaptee implements Target{
     public void request() {
         super.doSomething();
     }
+
+    public interface MyCallback{
+        void callback(int code, String errormsg);
+    }
+
+    public void getRequest(int code, String errorMsg, MyCallback myCallback){
+        myCallback.callback(code+1, errorMsg);
+    }
 }

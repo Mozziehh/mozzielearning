@@ -2,17 +2,16 @@ package com.example.mozzie.mozlearning;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.telephony.TelephonyManager;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.mozzie.mozlearning.a_activity.FoucesActivity;
 import com.example.mozzie.mozlearning.a_activity.LaunchModeActivity;
 import com.example.mozzie.mozlearning.a_activity.LifeCycleActivity;
 import com.example.mozzie.mozlearning.ad_xuanfuchuang.XuanfoActivity;
-import com.example.mozzie.mozlearning.b_utils.LOGGER;
+import com.example.mozzie.mozlearning.af_zifuyushuzi.CharNumActivity;
+import com.example.mozzie.mozlearning.agjni.JNITestActivity;
 import com.example.mozzie.mozlearning.b_utils.ToastUtils;
 import com.example.mozzie.mozlearning.c_database.DataBaseActivity;
 import com.example.mozzie.mozlearning.d_intent.Aactivity;
@@ -32,13 +31,33 @@ import com.example.mozzie.mozlearning.w_leak.LeakTestActivity;
 import com.example.mozzie.mozlearning.w_lottie.LottieActivity;
 import com.example.mozzie.mozlearning.z_work_drawerlayout.DrawerlayoutActivity;
 
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getAppBuildTime();
+    }
 
+    private String getAppBuildTime() {
+        String result = "";
+        try {
+            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), 0);
+            ZipFile zf = new ZipFile(ai.sourceDir);
+            ZipEntry ze = zf.getEntry("classes.dex");
+//            long time = ze.getTime();
+//            String s = SimpleDateFormat.getInstance().format(new java.util.Date(time));
+            zf.close();
+            ToastUtils.show(MainActivity.this, "打包时间1::::" + ze.getTime());
+        } catch (Exception e) {
+            ToastUtils.show(MainActivity.this, "打包时间" + e.getMessage());
+        }
+
+        return result;
     }
 
     public void OnLifeCycle(View view){
@@ -147,5 +166,11 @@ public class MainActivity extends Activity {
 
     public void OnXuanfuClick(View view) { XuanfoActivity.startActivity(this);}
 
+    public void onZifuClick(View view) {
+        CharNumActivity.startActivity(this);
+    }
 
+    public void onJniClick(View view){
+        JNITestActivity.startActivity(this);
+    }
 }

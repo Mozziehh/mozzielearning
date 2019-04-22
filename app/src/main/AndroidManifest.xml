@@ -90,7 +90,8 @@
         <activity android:name=".q_designparent.mvp.aa_parten.PartenActivity"></activity>
         <activity android:name=".ad_xuanfuchuang.XuanfoActivity"></activity>
         <activity android:name=".ad_xuanfuchuang.XuanfuWebActivity"></activity>
-
+        <activity android:name=".af_zifuyushuzi.CharNumActivity"></activity>
+        <activity android:name=".agjni.JNITestActivity"></activity>
         <receiver android:name=".g_broadcastreceiver.BootcompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>
